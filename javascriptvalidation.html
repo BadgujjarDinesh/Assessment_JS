@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<Html>
+    <head>
+        <title>
+
+        </title>
+
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container"><br>
+        <h1 class="text-success text-center"> Form Validation in javascript</h1><br>
+        
+            <div class="col-lg-8 m-auto d-block">
+
+                <form class="bg-light" action="#" onsubmit="return validation()">
+
+                    <div class="form-group">
+
+                        <label> Username: </label>
+                        <input type="text" name="User" placeholder="Username" class="form-control" id="user" >
+                        <span id ="username" class= " text-danger font-weight-bold"></span>
+                    <div>
+
+
+                    <div class="form-group">
+                        <label> Password: </label>
+                        <input type="text" name="Pass" placeholder="Password" class="form-control" id="pass">
+                        <span id ="password" class= " text-danger font-weight-bold"></span>
+                     </div>
+                         
+                    <div class="form-group">
+                        <label> ConfrimPassword: </label>
+                        <input type="text" name="Cpass" placeholder="Username" class="form-control" id="cpassword">
+                        <span id ="cnfpass" class= " text-danger font-weight-bold"></span>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label> Mobile: </label>
+                        <input type="text" name="Mnumber" placeholder="Mobile" class="form-control" id="MobileNumber">
+                        <span id ="mobile" class= " text-danger font-weight-bold"></span>
+
+                    </div>
+
+                    <div class="form-group">
+                        
+                        <label> Email: </label>
+                        <input type="text" name="email" placeholder="Email" class="form-control" id="Email">
+                        <span id ="email" class= " text-danger font-weight-bold"></span>
+                         
+                    </div>
+                    <input type="submit" name="Submit" placeholder="Submit" value="Submit" class="btn btn-success"> 
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            function validation(){
+
+                var user = document.getElementById("user").value;
+                var password = document.getElementById("pass").value;
+                var cnfpass = document.getElementById("cpassword").value;
+                var mobile = document.getElementById("MobileNumber").value;
+                var email = document.getElementById("Email").value;
+
+                if(user==""){
+                    document.getElementById("username").innerHTML="** Please fill the username field";
+                    return false;
+                }
+                if((user.length<3) || (user.length> 20)){
+
+                    document.getElementById("username").innerHTML="** Please fill the username between 3 and 20";
+                    return false;
+
+                }
+
+                if(!isNaN(user)){
+                    document.getElementById("username").innerHTML="** Please enter the characters";
+                    return false;
+
+                }
+
+                
+                if(password==""){
+                    document.getElementById("password").innerHTML="** Please fill the password field";
+                    return false;
+
+                }
+
+                if((password.length<3)|| (password.length>20)){
+                    document.getElementById("password").innerHTML="** fill the characters betweeen 3 and 20";
+                    return false;
+                
+
+                }
+
+                if(password!=cnfpass){
+                    document.getElementById("password").innerHTML="** Password and confirm password should be same";
+                    return false;
+
+                }
+
+                
+                if(cnfpass==""){
+                    document.getElementById("cnfpass").innerHTML="** Please fill the confirm password field";
+                    return false;
+                }
+
+                
+
+                
+                if(mobile==""){
+                    document.getElementById("mobile").innerHTML="** Please fill the mibile number";
+                    return false;
+                }
+
+                if(mobile.length!=10){
+                    document.getElementById("mobile").innerHTML="** Mobile number should be of 10 digits";
+                    return false;
+
+                }
+                if(isNaN(moble)){
+                    document.getElementById("mobile").innerHTML="** Mobile number should have only digits";
+                    return false;
+
+                }
+
+                
+                if(email==""){
+                    document.getElementById("email").innerHTML="** Please fill the email field";
+                    return false;
+                }
+
+                if(email.indexOf('@') <= 0){
+                    document.getElementById("email").innerHTML="** Please fill valid email";
+                    return false;
+
+                }
+
+                
+ 
+            }
+        </script>
+        
+    </body>
+</Html>
